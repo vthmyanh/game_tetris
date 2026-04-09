@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Hiện Đại</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen-overlay">
+        <div class="login-box">
+            <h1 class="title">TETRIS</h1>
+            <h2>Đăng Nhập</h2>
+            <div class="input-group">
+                <label for="nickname">Nickname</label>
+                <input type="text" id="nickname" placeholder="Nhập nickname của bạn" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" placeholder="Nhập mật khẩu" required>
+            </div>
+            <p id="login-error" class="error-msg hidden">Vui lòng nhập đầy đủ nickname và mật khẩu!</p>
+            <button id="login-btn" class="game-btn start-btn">Đăng nhập</button>
+        </div>
+    </div>
+
+    <!-- Main Game -->
+    <div id="main-game" class="game-container hidden">
+        <div class="left-panel">
+            <h1 class="title">TETRIS</h1>
+            <div class="stats-box">
+                <div class="stat">
+                    <span class="label">NGƯỜI CHƠI</span>
+                    <span class="value player-name-text" id="player-name">Guest</span>
+                </div>
+                <div class="stat">
+                    <span class="label">ĐIỂM</span>
+                    <span class="value" id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">CẤP ĐỘ</span>
+                    <span class="value" id="level">1</span>
+                </div>
+                <div class="stat">
+                    <span class="label">SỐ DÒNG</span>
+                    <span class="value" id="lines">0</span>
+                </div>
+            </div>
+            <div class="controls-box">
+                <button id="start-btn" class="game-btn start-btn">Bắt đầu</button>
+                <button id="pause-btn" class="game-btn pause-btn" disabled>Tạm dừng</button>
+                <button id="restart-btn" class="game-btn" disabled>Chơi lại</button>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <canvas id="tetris" width="300" height="600"></canvas>
+            <div id="game-over-screen" class="overlay hidden">
+                <h2>TRÒ CHƠI KẾT THÚC</h2>
+                <button id="play-again-btn" class="game-btn popup-btn">Chơi Lại</button>
+            </div>
+            <div id="pause-screen" class="overlay hidden">
+                <h2>ĐÃ TẠM DỪNG</h2>
+                <button id="resume-popup-btn" class="game-btn popup-btn">Tiếp Tục</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="preview-box">
+                <h3>KHỐI TIẾP THEO</h3>
+                <canvas id="next-tetromino" width="120" height="120"></canvas>
+            </div>
+            <div class="settings-box">
+                <h3>MÀU NỀN</h3>
+                <select id="bg-color-picker" class="color-picker">
+                    <option value="black">Đen (Mặc định)</option>
+                    <option value="blue">Xanh dương</option>
+                    <option value="red">Đỏ</option>
+                    <option value="yellow">Vàng</option>
+                </select>
+            </div>
+            <div class="instructions">
+                <h3>ĐIỀU KHIỂN</h3>
+                <ul>
+                    <li><span class="key">↑</span> Xoay khối</li>
+                    <li><span class="key">←</span> Sang trái</li>
+                    <li><span class="key">→</span> Sang phải</li>
+                    <li><span class="key">↓</span> Rơi từ từ</li>
+                    <li><span class="key">Space</span> Rơi nhanh</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
